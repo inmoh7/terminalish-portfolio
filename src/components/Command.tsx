@@ -1,32 +1,48 @@
+import { useEffect, useRef } from 'react';
+import { CommandProps } from '../types/types';
+
 const Command = ({
   children,
-  isDone,
+  isExecuted,
   command,
   handleKeyDown,
-}: {
-  isDone: boolean;
-  children?: React.ReactNode;
-  command?: string;
-  handleKeyDown?: (e: React.KeyboardEvent<HTMLInputElement>) => void;
-}) => {
-  
+  handleCommandChange,
+}: CommandProps) => {
+  const inputRef = useRef<HTMLInputElement | null>(null);
+
+  useEffect(() => {
+    inputRef?.current?.focus();
+  }, []);
+
   return (
     <>
-      <div className="px-3 py-1">
+      <div className="px-3 pt-2">
         <div className="flex justify-center items-center">
-          <div className="font-bold mr-2">portfolio@infas7 ~ %</div>
-          {!isDone && (
+          <div className="font-medium mr-2 text-">
+            <span className="">portfolio</span>
+            <span className="">@inmoh7 </span>
+            <span className=""> ~ %</span>
+          </div>
+
+          {!isExecuted && (
             <input
+              ref={inputRef}
               type="text"
               placeholder=" "
-              className="outline-none border-none flex-1 bg-transparent"
+              className="outline-none border-none flex-1 bg-transparent font-thin text-slate-50 caret-pink-300"
+              value={command}
+              onChange={handleCommandChange}
               onKeyDown={handleKeyDown}
             />
           )}
 
-          {isDone && <div className="flex-1 bg-transparent">{command}</div>}
+          {isExecuted && (
+            <div className="flex-1 bg-transparent font-thin text-slate-50">
+              {command}
+            </div>
+          )}
         </div>
-        {isDone && children}
+        {isExecuted && children}
       </div>
     </>
   );
