@@ -6,7 +6,7 @@ import { commands } from '../data/commands';
 import TerminalHeader from './TerminalHeader';
 
 const Terminal = () => {
-  const [currentPage, setCurrentPage] = useState<string>('');
+  const [currentPage, setCurrentPage] = useState<string>('/');
   const [currentCommand, setCurrentCommand] = useState<string>('');
   const [commandsHistory, setCommandsHistory] = useState<CommandType[]>([]);
 
@@ -51,8 +51,9 @@ const Terminal = () => {
 
   return (
     <>
-      <div className="hidden h-screen w-full text-white bg-slate-300 sm:flex items-center justify-center sm:px-2">
-        <div className="w-[750px] h-[550px] bg-gray-500 drop-shadow-xl rounded-md overflow-x-hidden relative">
+      <div className="hidden h-screen w-full text-white bg-gradient-to-r from-blue-200 to-cyan-200 sm:flex items-center justify-center sm:px-2">
+        <img src=""></img>
+        <div className="w-[750px] h-[550px] bg-gray-600 drop-shadow-xl rounded-md overflow-x-hidden relative">
           <TerminalHeader currentPage={currentPage} />
           <div className="">
             {commandsHistory &&
@@ -83,8 +84,8 @@ const Terminal = () => {
           </div>
         </div>
       </div>
-      {/* small screen */}
-      <div className="flex-col sm:hidden p-6 w-screen h-screen items-center content-center bg-slate-300">
+      {/* small screens */}
+      <div className="flex-col sm:hidden p-6 w-screen h-screen items-center content-center bg-gradient-to-r from-blue-200 to-cyan-200">
         <div className="text-xl text-center">
           Bro, your screen is too small to display a terminal...
         </div>

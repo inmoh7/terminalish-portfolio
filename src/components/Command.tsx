@@ -18,10 +18,13 @@ const Command = ({
     <>
       <div className="px-3 pt-2">
         <div className="flex justify-center items-center">
-          <div className="font-medium mr-2 text-">
-            <span className="">portfolio</span>
-            <span className="">@inmoh7 </span>
-            <span className=""> ~ %</span>
+          <div className="inline-flex items-center">
+            <div className="font-medium">
+              <span className="bg-red-500 pl-1 ">portfolio</span>
+              <span className="bg-green-600">@inmoh7</span>
+              <span className="bg-yellow-600">~ %</span>
+            </div>
+            <div className="size-[21px] m-0 p-0 box-border bg-transparent border-8 border-yellow-600  border-r-transparent  border-y-transparent"></div>
           </div>
 
           {!isExecuted && (
