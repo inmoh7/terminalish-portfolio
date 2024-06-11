@@ -22,7 +22,7 @@ const Quote = () => {
   }, []);
 
   return (
-    <div className="text-bold">
+    <div className="text-bold my-4">
       {!loading && (
         <div>
           <div className="text-center text-sky-400">

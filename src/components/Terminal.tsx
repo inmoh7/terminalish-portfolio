@@ -1,14 +1,33 @@
-import { ChangeEvent, KeyboardEvent, useState } from 'react';
+import { ChangeEvent, KeyboardEvent, useEffect, useRef, useState } from 'react';
 
 import Command from './Command';
 import { CommandType } from '../types/types';
 import { commands } from '../data/commands';
 import TerminalHeader from './TerminalHeader';
+import Home from '../pages/Home';
+
+let firstRender = true;
 
 const Terminal = () => {
   const [currentPage, setCurrentPage] = useState<string>('/');
   const [currentCommand, setCurrentCommand] = useState<string>('');
   const [commandsHistory, setCommandsHistory] = useState<CommandType[]>([]);
+  const bottomRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (firstRender) {
+      firstRender = false;
+    }
+  }, []);
+
+  useEffect(() => {
+    if (bottomRef.current) {
+      bottomRef.current.scrollIntoView({
+        behavior: 'smooth',
+        block: 'end',
+      });
+    }
+  }, [commandsHistory]);
 
   const handleKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
     const trimmedCommand = currentCommand.trim();
@@ -51,45 +70,55 @@ const Terminal = () => {
 
   return (
     <>
-      <div className="hidden h-screen w-full text-white bg-gradient-to-r from-blue-200 to-cyan-200 sm:flex items-center justify-center sm:px-2">
-        <img src=""></img>
-        <div className="w-[750px] h-[550px] bg-gray-600 drop-shadow-xl rounded-md overflow-x-hidden relative">
+      <div className="hidden h-screen w-full sm:flex items-center justify-center text-white bg-[url('/src/assets/images/bg-home.jpg')]  sm:px-2">
+        <div className="sm:fixed top-0 right-0 w-screen h-screen bg-black opacity-20" />
+        <div className="w-1/2 min-w-[550px]">
           <TerminalHeader currentPage={currentPage} />
-          <div className="">
-            {commandsHistory &&
-              commandsHistory.map((cmd, index) => {
-                if (cmd.type === 'cmd' || cmd.type === 'util') {
-                  return (
-                    <Command key={index} isExecuted={true} command={cmd.text}>
-                      {cmd.page && <cmd.page />}
-                    </Command>
-                  );
-                } else {
-                  return (
-                    <Command key={index} isExecuted={true} command={cmd.text}>
-                      <div className="text-red-300 font-mono">
-                        Invalid Command!
-                      </div>
-                    </Command>
-                  );
-                }
-              })}
+          <div className="w-full h-[550px] bg-neutral-900 opacity-85 drop-shadow-xl rounded-b-md overflow-x-hidden pt-2">
+            <div className="">
+              {commandsHistory &&
+                commandsHistory.map((cmd, index) => {
+                  if (cmd.type === 'cmd' || cmd.type === 'util') {
+                    return (
+                      <Command key={index} isExecuted={true} command={cmd.text}>
+                        {cmd.page && <cmd.page />}
+                      </Command>
+                    );
+                  } else {
+                    return (
+                      <Command key={index} isExecuted={true} command={cmd.text}>
+                        <div className="text-red-300 font-mono">
+                          Invalid Command!
+                        </div>
+                      </Command>
+                    );
+                  }
+                })}
 
-            <Command
-              isExecuted={false}
-              command={currentCommand}
-              handleCommandChange={handleCommandChange}
-              handleKeyDown={handleKeyDown}
-            />
+              {firstRender && (
+                <div className="mb-2">
+                  <Home />
+                </div>
+              )}
+
+              <div ref={bottomRef}>
+                <Command
+                  isExecuted={false}
+                  command={currentCommand}
+                  handleCommandChange={handleCommandChange}
+                  handleKeyDown={handleKeyDown}
+                />
+              </div>
+            </div>
           </div>
         </div>
       </div>
       {/* small screens */}
-      <div className="flex-col sm:hidden p-6 w-screen h-screen items-center content-center bg-gradient-to-r from-blue-200 to-cyan-200">
-        <div className="text-xl text-center">
+      <div className="flex-col sm:hidden p-6 w-screen h-screen items-center content-center bg-gradient-to-r from-slate-900 to-slate-700">
+        <div className="text-xl text-center text-white">
           Bro, your screen is too small to display a terminal...
         </div>
-        <div className="text-4xl w-full text-center mt-3 animate-bounce">🥹</div>
+        <div className="text-4xl w-full text-center mt-3">🥹</div>
       </div>
     </>
   );

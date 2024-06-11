@@ -16,7 +16,7 @@ const Command = ({
 
   return (
     <>
-      <div className="px-3 pt-2">
+      <div className="px-3 pt-1 pb-2">
         <div className="flex justify-center items-center">
           <div className="inline-flex items-center">
             <div className="font-medium">

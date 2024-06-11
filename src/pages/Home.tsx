@@ -11,6 +11,10 @@ const Home = () => {
           {' \\/  \\/ \\___|_|\\____\\___/|_| |_| |_|\\___|  \n'}
         </pre>
       </div>
+      <div className="text-center">
+        Hello Hello!!!🤝 Glad to see you in my terminal'ish portfolio. For helps
+        please type command <span className="text-yellow-500">'man'</span> 😊
+      </div>
     </div>
   );
 };
