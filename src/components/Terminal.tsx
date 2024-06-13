@@ -119,6 +119,14 @@ const Terminal = () => {
           Bro, your screen is too small to display a terminal...
         </div>
         <div className="text-4xl w-full text-center mt-3">🥹</div>
+        <div className="text-md text-white w-full text-center mt-3">
+          Take a sneak peak
+        </div>
+        <img
+          className="rounded-md shadow-lg my-4"
+          src="/src/assets/images/demo-image.png"
+          alt="sample image of the UI"
+        />
       </div>
     </>
   );

@@ -1,4 +1,5 @@
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
+import { MdEmail } from 'react-icons/md';
 
 const About = () => {
   return (
@@ -17,14 +18,31 @@ const About = () => {
       <div className="flex gap-8 justify-center items-center mt-4">
         <div className="flex items-center justify-center gap-1 hover:scale-105">
           <FaGithub />
-          <a className="underline " href="https://github.com/inmoh7">
+          <a
+            className="underline "
+            href={`https://github.com/${import.meta.env.VITE_USERNAME}`}
+          >
             Github
           </a>
         </div>
         <div className="flex items-center justify-center gap-1 hover:scale-105">
           <FaLinkedin />
-          <a className="underline " href="https://www.linkedin.com/in/inmoh7">
+          <a
+            className="underline "
+            href={`https://www.linkedin.com/in/${
+              import.meta.env.VITE_USERNAME
+            }`}
+          >
             LinkedIn
+          </a>
+        </div>
+        <div className="flex items-center justify-center gap-1 hover:scale-105">
+          <MdEmail />
+          <a
+            className="underline "
+            href={`mailto:${import.meta.env.VITE_EMAIL}`}
+          >
+            Email
           </a>
         </div>
       </div>

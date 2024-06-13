@@ -41,7 +41,7 @@ const Projects = () => {
         For more projects visit my{' '}
         <a
           className="hover:scale-110 hover:text-red-500 underline"
-          href="https://github.com/inmoh7"
+          href={`https://github.com/${import.meta.env.VITE_USERNAME}`}
         >
           Github
         </a>

@@ -13,7 +13,7 @@ const Education = () => {
                     <span>{index + 1} . </span>
                     {education.name}
                   </div>
-                  <div>{education.timeline}</div>
+                  <div className="text-sm">{education.timeline}</div>
                 </div>
                 <div className="font-thin pl-6 ">
                   <div>{education.qualification}</div>

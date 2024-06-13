@@ -4,6 +4,7 @@ const ListPages = () => {
       <div className="font-semibold">home</div>
       <div className="font-semibold">about</div>
       <div className="font-semibold">education</div>
+      <div className="font-semibold">experience</div>
       <div className="font-semibold">projects</div>
     </div>
   );

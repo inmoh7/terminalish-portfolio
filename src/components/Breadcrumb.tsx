@@ -2,7 +2,7 @@ const Breadcrumb = ({ currentPage }: { currentPage: string }) => {
   return (
     <>
       <div>
-        ~inmoh7/porfolio<span>{currentPage}</span>
+        ~{import.meta.env.VITE_USERNAME}/porfolio<span>{currentPage}</span>
       </div>
     </>
   );
