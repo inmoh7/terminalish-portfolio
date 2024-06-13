@@ -124,7 +124,7 @@ const Terminal = () => {
         </div>
         <img
           className="rounded-md shadow-lg my-4"
-          src="/src/assets/images/demo-image.png"
+          src="demo-image.png"
           alt="sample image of the UI"
         />
       </div>
