@@ -7,7 +7,7 @@ const Quote = () => {
 
   useEffect(() => {
     setLoading(true);
-    fetch('https://api.quotable.io/quotes/random')
+    fetch('http://api.quotable.io/quotes/random')
       .then((response) => {
         return response.json();
       })
@@ -17,8 +17,14 @@ const Quote = () => {
           author: data[0]?.author,
         };
         setApiData(trimedData);
-        setLoading(false);
-      });
+      })
+      .catch(() =>
+        setApiData({
+          content: 'Opps! could not get a quote at the moment',
+          author: 'error',
+        })
+      )
+      .finally(() => setLoading(false));
   }, []);
 
   return (

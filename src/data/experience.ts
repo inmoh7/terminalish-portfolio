@@ -1,10 +1,16 @@
 export const experienceList = [
   {
+    name: 'OrangeHRM Inc.',
+    position: 'Software Engineer',
+    description: 'Work as a fullstack VueJs/Angular and Symfony developer.',
+    timeline: 'Aug 2024 - present',
+  },
+  {
     name: 'Zero One Technologies',
     position: 'Associate Software Engineer',
     description:
       'Worked as Django back-end developer with minor contributions to NextJS front-end Worked with a team of front-end devs. Work involves PostgreSQL,Docker and AWS services.Key contributions involves developing REST APIs , Integrating third party API’s and Mail services.',
-    timeline: 'Aug 2023 - Jan 2024',
+    timeline: 'Aug 2023 - Mar 2024',
   },
   {
     name: 'Stephen Innovations',

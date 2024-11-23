@@ -6,12 +6,12 @@ const About = () => {
     <div>
       <h1 className="text-center text-xl mt-2">About Me</h1>
       <div className="text-center my-2 px-2">
-        I'm Infas. A passionate full-stack developer from the beautiful island
-        🇱🇰. My current tech stack is ReactJs/NextJs, AngularJs, ExpressJs and
-        Springboot. I have over a year of industrial experience in full-stack
-        development including Laravel, Django and VueJs. I'm familiar with
-        programming languages like Javascript/Typescript, Python, Java and PHP.
-        I'm self motivated person with passion to aquire new skills whenever
+        I'm Infas. A passionate frontend focused full-stack developer from the
+        beautiful island 🇱🇰. My current tech stack is ReactJs/NextJs, VueJs,
+        ExpressJs and PHP. I have over 2 years of working experience in
+        full-stack development including Laravel, Symfony, Django and VueJs. I'm
+        familiar with programming languages like Typescript, PHP and Python. I'm
+        self motivated person with passion to aquire new skills whenever
         possible. I like creating beautiful websites with stunnig UI. Apart from
         programming I like gaming and watching football.
       </div>
